@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip Cards Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            width: 200px;
+            height: 400px;
+            perspective: 1000px;
+            margin: 15px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .card-front {
+            color: white;
+            padding: 20px;
+        }
+
+        .card1 { background-color: #FF6F61; } /* Coral Red */
+        .card2 { background-color: #6B5B95; } /* Amethyst Purple */
+        .card3 { background-color: #88B04B; } /* Spring Green */
+        .card4 { background-color: #F7CAC9; } /* Pale Pink */
+        .card5 { background-color: #92A8D1; } /* Sky Blue */
+
+
+        .card-back {
+            background-color: #34495e;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Text Display Above the Card */
+        .hover-text {
+            position: absolute;
+            top: -40px; /* Adjust to position the name above the card */
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            color: black;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .card:hover .hover-text {
+            opacity: 1; 
+        }
+
+        .img-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0px 0;
+        }
+
+        .img-circle img {
+            width: 100%;
+            height: auto;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Department Showcase</h1>
+    </header>
+
+    <main>
+        <div class="card-container">
+            <!-- Card 1 -->
+            <div class="card card1">
+                <div class="hover-text">John Doe</div>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-circle">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe">
+                        </div>
+                        <h2>Web Developer</h2>
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-github"></i> GitHub</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-instagram"></i> Instagram</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-facebook"></i> Facebook</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-youtube"></i> YouTube</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>John Doe</h3>
+                        <p>Lucknow</p>
+                        <p>1234 Elm Street</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card card2">
+                <div class="hover-text">Jane Smith</div>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-circle">
+                            <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Jane Smith">
+                        </div>
+                        <h2>Web Designer</h2>
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-github"></i> GitHub</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-instagram"></i> Instagram</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-facebook"></i> Facebook</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-youtube"></i> YouTube</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Jane Smith</h3>
+                        <p>Noida</p>
+                        <p>5678 Oak Avenue</p>
+                    </div>
+                </div>
+            </div>
+
+              <!-- Card 3 -->
+            <div class="card card3">
+                <div class="hover-text">Michael Brown</div>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-circle">
+                            <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Michael Brown">
+                        </div>
+                        <h2>Project Manager</h2>
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-github"></i> GitHub</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-instagram"></i> Instagram</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-facebook"></i> Facebook</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-youtube"></i> YouTube</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Michael Brown</h3>
+                        <p>New Delhi</p>
+                        <p>9101 Pine Road</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card card4">
+                <div class="hover-text">Alice Johnson</div>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-circle">
+                            <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Alice Johnson">
+                        </div>
+                        <h2>Cyber Security</h2>
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-github"></i> GitHub</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-instagram"></i> Instagram</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-facebook"></i> Facebook</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-youtube"></i> YouTube</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Alice Johnson</h3>
+                        <p>Faridabad</p>
+                        <p>1213 Maple Boulevard</p>
+                    </div>
+                </div>
+            </div>
+
+
+              <!-- Card 5 -->
+              <div class="card card5">
+                <div class="hover-text">Robert Wilson</div>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-circle">
+                            <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Robert Wilson">
+                        </div>
+                        <h2>Data Analyst</h2>
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="bi bi-linkedin"></i>  LinkedIn</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-github"></i>    GitHub</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-instagram"></i> Instagram</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-facebook"></i>  Facebook</a><br>
+                            <a href="#" target="_blank"><i class="bi bi-youtube"></i>   YouTube</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Robert Wilson</h3>
+                        <p>Gurgaon</p>
+                        <p>1415 Birch Lane</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CodesBizz Information Technology Lucknow</p>
+    </footer>
+</body>
+</html>
